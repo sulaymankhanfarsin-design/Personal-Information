@@ -68,6 +68,48 @@
     /* Lightbox */
     #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:999;}
     #lightbox img{max-width:90%;max-height:90%;border-radius:14px;}
+    /* Card container */
+.card {
+  background-color: #111;       /* Dark background */
+  border: 1px solid #333;       /* Outer border */
+  border-radius: 12px;          /* Smooth rounded corners */
+  padding: 20px;                /* Space inside the card */
+  margin: 20px 0;               /* Space between cards */
+  color: #fff;
+}
+
+/* Heading */
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Chip container */
+.Skills, .Soft, .Soft\ Skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;                    /* Adds space between chips */
+}
+
+/* Chip style */
+.chip {
+  background-color: #222;
+  border: 1px solid #d4a017;    /* Yellow border */
+  color: #d4a017;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* Hover effect */
+.chip:hover {
+  background-color: #d4a017;
+  color: #000;
+}
+
   </style>
 </head>
 <body>
@@ -95,7 +137,7 @@
           <div class="meta">
             <div class="tag">Location: Vatikashor Alia Madrasa Road, Mymensingh-2200, Bangladesh</div>
             <div class="tag">Role: Technician (computer hardware)</div>
-            <div class="tag">Hobby: Videoediting</div>
+            <div class="tag">Hobby:Photography & Videoediting</div>
           </div>
         </section>
 
@@ -121,16 +163,20 @@
               <p>6+ months of internship at - Computer Build • Computer general issue • No display issue • Motherboard problem • Ram Problem • Bios Problem etc.</p>
             </div>
             <div class="item">
-              <h4>    PYTHON PROJECT 01</h4>
+              <h4>PROGRAMMING PROJECTS</h4>
+              <div class="cta">
+              <a href="https://sulaymankhanfarsin-design.github.io/calculator/" class="btn btn-primary" download>Web Calculator</a>
+            </div>
+            </div>
+            <div class="item">
+              <h4>PHOTOS, VIDEOGRAPHER & EDITING PROJECTS</h4>
               <p> DISCRIPTION</p>
             </div>
             <div class="item">
-              <h4>    SQL PROJECT 01</h4>
-              <p> DISCRIPTION</p>
+              <h4>    HARDWARE TECHNICIAN PROJECTS</h4>
+              <div class="cta">
+              <a href="https://www.youtube.com/watch?v=W2ZzYprSND0" class="btn btn-primary" download>An Old PC assemble</a>
             </div>
-            <div class="item">
-              <h4>    Hardware Technician/photos and videographer/editing PROJECT 01</h4>
-              <p> DISCRIPTION</p>
             </div>
           </div>
         </section>
@@ -149,12 +195,14 @@
 
       <aside>
         <section class="card">
-          <h3>Contact & CV</h3>
+          <h3>Contact & Social Media</h3>
           <div class="contact-list">
-            <div>Email: <a href="mailto:faruk.mym@gmail.com">sulaymankhanfarsin@gmail.com</a></div>
+            <div>Email: <a href="mailto:sulaymankhanfarsin@gmail.com">sulaymankhanfarsin@gmail.com</a></div>
             <div>Phone: +8801614747697</div>
             <div class="cta">
-              <a href="CV.pdf" class="btn btn-primary" download>Download CV</a>
+              <a href="https://www.linkedin.com/in/sulayman-khan-083802387/" class="btn btn-primary" download>Linkedin</a>
+              <a href="https://github.com/sulaymankhanfarsin-design" class="btn btn-primary" download>Github</a>
+              <a href="https://www.facebook.com/farsinkhan.0" class="btn btn-primary" download>Facebook</a>
             </div>
           </div>
         </section>
@@ -162,63 +210,64 @@
         <section class="card">
           <h3>Skills</h3>
           <div class="Skills">
-            <div class="chip">Html</div>
+            <a class="chip">Html</a>
             
-            <div class="chip">Python</div>
+            <a class="chip">Python</a>
             
-            <div class="chip">SQL</div>
+            <a class="chip">SQL</a>
             
-            <div class="chip">Css (basic)</div>
+            <a class="chip">Css (basic)</a>
             
-            <div class="chip">Machine Learning (basic)</div>
+            <a class="chip">Machine Learning (basic)</a>
             
-            <div class="chip">Project Management</div>
+            <a class="chip">Project Management</a>
           </div>
         </section>
 
        <section class="card">
           <h3>Digital Skills</h3>
           <div class="Soft Skills">
-            <div class="chip">Microsoft Word</div>
-            <div class="chip">Microsoft Powerpoint</div>
-            <div class="chip">Microsoft Excel</div>
-            <div class="chip">Adobe Photoshop</div>
-            <div class="chip">Adobe Premiere Pro</div>
-            <div class="chip">Adobe Lightroom</div>
+            <a class="chip">Microsoft Word</a>
+            <a class="chip">Microsoft Powerpoint</a>
+            <a class="chip">Microsoft Excel</a>
+            <a class="chip">Adobe Photoshop</a>
+            <a class="chip">Adobe Premiere Pro</a>
+            <a class="chip">Adobe Lightroom</a>
           </div>
         </section>
 
         <section class="card">
           <h3>Trading Skills</h3>
+          
           <div class="Skills">
-            <div class="chip">Forex Trading</div>
+            <span class="chip">Forex Trading</span>
             
-            <div class="chip">Crypto Trading</div>
+            <span class="chip">Crypto Trading</span>
             
-            <div class="chip">Binary Trading (basic)</div>
+            <span class="chip">Binary Trading (basic)</span>
             
-            <div class="chip">Stock Market (basic)</div>
+            <span class="chip">Stock Market (basic)</span>
           </div>
         </section>
 
         <section class="card">
           <h3>Language Skills</h3>
-          <div class="Skills">
-            <div class="chip">English</div>
+          <a class="Skills">
+            <a class="chip">English</a>
             
-            <div class="chip">Bangla</div>
+            <a class="chip">Bangla</a>
             
-            <div class="chip">Hindi</div>
+            <a class="chip">Hindi</a>
             
-            <div class="chip">Urdu</div>
-          </div>
+            <a class="chip">Urdu</a>
+          </a>
         </section>
         
       </aside>
     </main>
 
     <footer>
-      &copy; 2025 .Sulayman Khan Farsin. All rights reserved.
+      &copy; 2025 . Sulayman Khan Farsin. All rights reserved.
     </footer>
   </div>
 
