@@ -3,153 +3,291 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sulayman Khan Farsin — Luxury Portfolio</title>
-  <meta name="description" content="Luxury personal website of Sulayman Khan Farsin — MS in Computer Science, researcher, IT leader, and entrepreneur." />
+  <title>Sulayman Khan Farsin — Portfolio</title>
+  <meta name="description" content="Personal portfolio website of Sulayman Khan Farsin." />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#0c0b0b;
-      --card:#1a1a1a;
+      --card:#141414;
       --muted:#d4c7b7;
       --accent:#d4af37;
       --glass: rgba(255,255,255,0.05);
       --max-width:1200px;
       font-family: 'Inter', sans-serif;
     }
+
     *{box-sizing:border-box;margin:0;padding:0;}
     html,body{height:100%;background:var(--bg);color:#f5f1e8;scroll-behavior:smooth;}
-    body{display:flex;justify-content:center;padding:30px;line-height:1.6;}
+
+    body{
+      display:flex;
+      justify-content:center;
+      padding:22px;
+      line-height:1.6;
+    }
+
     a{color:var(--accent);text-decoration:none;transition:0.3s;}
     a:hover{color:#fff;}
 
-    .container{width:100%;max-width:var(--max-width);display:flex;flex-direction:column;gap:24px;}
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
 
-    header{display:flex;align-items:center;gap:24px;}
-    .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;border:3px solid var(--accent);transition:0.4s;}
+    /* HEADER */
+    header{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .avatar{
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      overflow:hidden;
+      border:3px solid var(--accent);
+      transition:0.3s;
+      flex: 0 0 auto;
+    }
     .avatar img{width:100%;height:100%;object-fit:cover;}
-    .avatar:hover{transform:scale(1.05);}
-    h1{font-size:32px;color:var(--accent);}
-    .headline{color:var(--muted);margin-top:6px;font-size:18px;}
+    .avatar:hover{transform:scale(1.04);}
 
-    main{display:grid;grid-template-columns:2fr 1fr;gap:32px;margin-top:30px;}
-    @media(max-width:1000px){main{grid-template-columns:1fr;}}
+    h1{
+      font-size:34px;
+      color:var(--accent);
+      letter-spacing:0.8px;
+    }
 
-    .card{background:var(--card);padding:28px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.6);border:1px solid rgba(212,175,55,0.2);transition:0.5s;}
-    .card:hover{transform:translateY(-8px);}
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
 
-    section + section{margin-top:24px;}
-    .meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;}
-    .tag{background:var(--glass);padding:8px 16px;border-radius:999px;font-size:14px;color:var(--muted);border:1px solid rgba(212,175,55,0.3);}
+    .tag{
+      background:var(--glass);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid rgba(212,175,55,0.3);
+    }
 
-    .list{display:flex;flex-direction:column;gap:18px;}
-    .item{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(212,175,55,0.05), transparent);border:1px solid rgba(212,175,55,0.2);transition:0.4s;}
-    .item:hover{background:linear-gradient(180deg, rgba(212,175,55,0.1), transparent);}
-    .item h4{font-size:20px;margin-bottom:8px;color:var(--accent);}
-    .item p{font-size:15px;color:var(--muted);}
+    /* MAIN GRID */
+    main{
+      display:grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap:22px;
+      margin-top:6px;
+      align-items:start;
+    }
+    @media(max-width:1000px){
+      main{grid-template-columns:1fr;}
+    }
 
-    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:14px;transition:0.4s;cursor:pointer;}
-    .gallery img:hover{transform:scale(1.05);}
+    /* CARD */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding:22px;
+      border-radius:18px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.6);
+      border:1px solid rgba(212,175,55,0.18);
+      transition:0.3s;
+    }
+    .card:hover{transform:translateY(-4px);}
 
-    aside{display:flex;flex-direction:column;gap:28px;}
-    .contact-list{display:flex;flex-direction:column;gap:14px;}
-    .cta{display:flex;gap:14px;margin-top:14px;}
-    .btn{padding:14px 18px;border-radius:14px;font-weight:600;border:0;cursor:pointer;transition:0.4s;}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#ffd700);color:#1a1a1a;}
-    .btn-primary:hover{opacity:0.9;}
-    .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.5);color:var(--muted);}
-    .btn-ghost:hover{opacity:0.8;}
+    section + section{margin-top:18px;}
 
-    .skills{display:flex;flex-wrap:wrap;gap:12px;}
-    .chip{background:rgba(212,175,55,0.1);padding:6px 14px;border-radius:12px;font-size:14px;color:var(--accent);}
+    /* LIST + ITEM */
+    .list{display:flex;flex-direction:column;gap:14px;}
+    .item{
+      padding:16px;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(212,175,55,0.05), transparent);
+      border:1px solid rgba(212,175,55,0.18);
+      transition:0.25s;
+    }
+    .item:hover{
+      background:linear-gradient(180deg, rgba(212,175,55,0.09), transparent);
+    }
+    .item h4{font-size:17px;margin-bottom:8px;color:var(--accent);}
+    .item p{font-size:14px;color:var(--muted);}
 
-    footer{opacity:0.8;text-align:center;font-size:14px;margin-top:24px;color:var(--muted);}
+    /* BUTTONS */
+    .cta{
+      display:flex;
+      gap:12px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:700;
+      border:0;
+      cursor:pointer;
+      transition:0.25s;
+      font-size:14px;
+      display:inline-block;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),#ffd700);
+      color:#1a1a1a;
+    }
+    .btn-primary:hover{opacity:0.92;transform:translateY(-2px);}
 
-    /* Lightbox */
-    #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:999;}
-    #lightbox img{max-width:90%;max-height:90%;border-radius:14px;}
-    /* Card container */
-.card {
-  background-color: #111;       /* Dark background */
-  border: 1px solid #333;       /* Outer border */
-  border-radius: 12px;          /* Smooth rounded corners */
-  padding: 20px;                /* Space inside the card */
-  margin: 20px 0;               /* Space between cards */
-  color: #fff;
-}
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(212,175,55,0.55);
+      color:var(--muted);
+    }
+    .btn-ghost:hover{opacity:0.85;transform:translateY(-2px);}
 
-/* Heading */
-.card h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  color: #fff;
-}
+    /* CHIPS */
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .chip{
+      background:rgba(212,175,55,0.08);
+      padding:7px 14px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--accent);
+      border:1px solid rgba(212,175,55,0.35);
+      display:inline-block;
+    }
 
-/* Chip container */
-.Skills, .Soft, .Soft\ Skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;                    /* Adds space between chips */
-}
+    /* RIGHT SIDE */
+    aside{display:flex;flex-direction:column;gap:18px;}
 
-/* Chip style */
-.chip {
-  background-color: #222;
-  border: 1px solid #d4a017;    /* Yellow border */
-  color: #d4a017;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .gallery img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:14px;
+      transition:0.25s;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .gallery img:hover{transform:scale(1.03);}
 
-/* Hover effect */
-.chip:hover {
-  background-color: #d4a017;
-  color: #000;
-}
+    /* LIGHTBOX */
+    #lightbox{
+      position:fixed;
+      top:0;left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+      padding:18px;
+    }
+    #lightbox img{
+      max-width:92%;
+      max-height:92%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+    }
 
+    /* VIDEO BOX */
+    .vamk-video-box{
+      display:none;
+      margin-top:14px;
+      padding:14px;
+      border-radius:18px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.08), rgba(0,0,0,0));
+      border: 1px solid rgba(212,175,55,0.25);
+    }
+
+    iframe, video{
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:#000;
+    }
+
+    footer{
+      opacity:0.8;
+      text-align:center;
+      font-size:13px;
+      margin-top:10px;
+      color:var(--muted);
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
+
     <header>
       <div class="avatar">
-        <img src="WhatsApp Image 2025-09-23 at 9.33.00 PM.jpeg" width="1000">
+        <img src="WhatsApp Image 2025-09-23 at 9.33.00 PM.jpeg" alt="profile">
       </div>
+
       <div>
         <h1>SULAYMAN KHAN FARSIN</h1>
         <div class="meta">
-          <div class="tag">Hardware Technician (computer)</div>
-          <div class="tag">Interested to Programming</div>
+          <div class="tag">Aspiring Game Artist</div>
+          <div class="tag">Visual Storyteller</div>
           <div class="tag">Photos and Videographer</div>
-          <div class="tag">An Editor</div>
+          <div class="tag">Tech Enthusiast</div>
         </div>
       </div>
     </header>
 
     <main>
+
       <div>
+
         <section class="card about">
           <h2>About</h2>
-          <p>Hello — I'm <strong>Sulayman Khan Farsin</strong>, a computer hardware technician  with 6+ months of tranning experience.I'm very interested to learned programming and I'm mastering some coding languages. I completed SSC and HSC lavel in Science and i want to complete my bachelor's degree in IT subjects in a European country.</p>
-          <div class="meta">
+          <p style="color:var(--muted); margin-top:10px;">
+            Hello — I'm <strong style="color:#fff;">Sulayman Khan Farsin</strong>. My journey into technology began with a screwdriver and a motherboard as a computer hardware technician.
+            While I spent months mastering the physical side of machines, my true passion has always been the digital worlds they power.
+            <br><br>
+            With a background in Science, I have taught myself the fundamentals of programming in Python, HTML, and CSS.
+            I am also a visual storyteller — as a dedicated photographer and video editor, I explore composition and lighting through Adobe Photoshop, Lightroom, and Premiere Pro.
+            <br><br>
+            I am working toward transitioning into the gaming industry, focusing on pursuing a degree in Game Arts in Finland.
+          </p>
+
+          <div class="meta" style="margin-top:14px;">
             <div class="tag">Location: Vatikashor Alia Madrasa Road, Mymensingh-2200, Bangladesh</div>
-            <div class="tag">Role: Technician (computer hardware)</div>
-            <div class="tag">Hobby:Photography & Videoediting</div>
+            <div class="tag">Digital Arts & Asset Creation</div>
+            <div class="tag">Hobby: Photography & Videoediting</div>
           </div>
         </section>
 
         <section class="card">
           <h3>Education</h3>
-          <div class="list">
+          <div class="list" style="margin-top:12px;">
             <div class="item">
-              <h4>Higher Secondary Certificate(HSC)2024 — Science</h4>
+              <h4>Higher Secondary Certificate (HSC) 2024 — Science</h4>
               <p>Govt. Nazrul College — Trishal, Mymensingh</p>
             </div>
             <div class="item">
-              <h4>Secondary School Certificate(SSC)2022 — Science</h4>
+              <h4>Secondary School Certificate (SSC) 2022 — Science</h4>
               <p>Mukul Niketon High School — Moharaja Road, Mymensingh.</p>
             </div>
           </div>
@@ -157,42 +295,82 @@
 
         <section class="card">
           <h3>Experience & Projects</h3>
-          <div class="list">
+
+          <div class="list" style="margin-top:12px;">
             <div class="item">
               <h4>Technician (computer hardware) — Desh Enterprise, Aloka Nodi Bangla Complex, Mymensingh</h4>
               <p>6+ months of internship at - Computer Build • Computer general issue • No display issue • Motherboard problem • Ram Problem • Bios Problem etc.</p>
             </div>
+
             <div class="item">
               <h4>PROGRAMMING PROJECTS</h4>
               <div class="cta">
-              <a href="https://image-studio-farsinkhan.onrender.com/" class="btn btn-primary" download>Image Studio</a>
-              <a href="https://qr-code-generator-farsin-khan.onrender.com/" class="btn btn-primary" download>QR Code Generator</a>
-              <a href="https://file-converter-farsin-khan-tqk4.onrender.com/" class="btn btn-primary" download>File Converter</a>
+                <a href="https://image-studio-farsinkhan.onrender.com/" class="btn btn-primary" target="_blank">Image Studio</a>
+                <a href="https://qr-code-generator-farsin-khan.onrender.com/" class="btn btn-primary" target="_blank">QR Code Generator</a>
+                <a href="https://file-converter-farsin-khan-tqk4.onrender.com/" class="btn btn-primary" target="_blank">File Converter</a>
+              </div>
             </div>
-            </div>
+
             <div class="item">
               <h4>PHOTOS, VIDEOGRAPHER & EDITING PROJECTS</h4>
+              
               <div class="cta">
-              <a href="https://www.youtube.com/watch?v=wTcv8jZk7vY" class="btn btn-primary" download>Cenamatic Tour</a>
-            </div>
-            </div>
-            <div class="item">
-              <h4>    HARDWARE TECHNICIAN PROJECTS</h4>
-              <div class="cta">
-              <a href="https://www.youtube.com/watch?v=W2ZzYprSND0" class="btn btn-primary" download>An Old PC assemble</a>
-            </div>
-            </div>
-          </div>
-        </section>
+                <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('wTcv8jZk7vY', 'ytBox', 'ytPlayer')">
+                  ▶ Watch: Cinematic Tour
+                </button>
+                
+                <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('bdBox', 'bdVideo')">
+                  ▶ Watch: Reasons To Visit BD
+                </button>
+                
+                <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('winterBox', 'winterVideo')">
+                  ▶ Watch: Winter Morning
+                </button>
+              </div>
 
-        <section class="card">
-          <h3>Gallery</h3>
-          <div class="gallery">
-            <img src="WhatsApp Image 2025-08-18 at 3.10.57 PM.jpeg" width="100" alt="photo1">
-            <img src="https://via.placeholder.com/400x300.png?text=Photo+2" alt="photo2">
-            <img src="https://via.placeholder.com/400x300.png?text=Photo+3" alt="photo3">
-            <img src="https://via.placeholder.com/400x300.png?text=Photo+4" alt="photo4">
-            <img src="https://via.placeholder.com/400x300.png?text=Photo+5" alt="photo5">
+              <div id="ytBox" class="vamk-video-box">
+                <div class="cta" style="margin-bottom:10px;">
+                  <button class="btn btn-ghost" type="button" onclick="closeVideo('ytBox', 'ytPlayer')">✖ Close Video</button>
+                </div>
+                <iframe id="ytPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div id="bdBox" class="vamk-video-box">
+                <div class="cta" style="margin-bottom:10px;">
+                  <button class="btn btn-ghost" type="button" onclick="closeLocal('bdBox', 'bdVideo')">✖ Close Video</button>
+                </div>
+                <video id="bdVideo" controls>
+                  <source src="Reasons To Visit BD.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div id="winterBox" class="vamk-video-box">
+                <div class="cta" style="margin-bottom:10px;">
+                  <button class="btn btn-ghost" type="button" onclick="closeLocal('winterBox', 'winterVideo')">✖ Close Video</button>
+                </div>
+                <video id="winterVideo" controls>
+                  <source src="Winter Morning.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <div class="item">
+              <h4>HARDWARE TECHNICIAN PROJECTS</h4>
+              <div class="cta">
+                <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('W2ZzYprSND0', 'oldPcBox', 'oldPcPlayer')">
+                  ▶ Watch: An Old PC assemble
+                </button>
+              </div>
+              <div id="oldPcBox" class="vamk-video-box">
+                <div class="cta" style="margin-bottom:10px;">
+                  <button class="btn btn-ghost" type="button" onclick="closeVideo('oldPcBox', 'oldPcPlayer')">✖ Close Video</button>
+                </div>
+                <iframe id="oldPcPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+
           </div>
         </section>
       </div>
@@ -200,84 +378,124 @@
       <aside>
         <section class="card">
           <h3>Contact & Social Media</h3>
-          <div class="contact-list">
+          <div style="margin-top:10px; color:var(--muted);">
             <div>Email: <a href="mailto:sulaymankhanfarsin@gmail.com">sulaymankhanfarsin@gmail.com</a></div>
-            <div>Phone: +8801614747697</div>
+            <div style="margin-top:6px;">Phone: +8801614747697</div>
+
             <div class="cta">
-              <a href="https://www.linkedin.com/in/sulayman-khan-083802387/" class="btn btn-primary" download>Linkedin</a>
-              <a href="https://github.com/sulaymankhanfarsin-design" class="btn btn-primary" download>Github</a>
-              <a href="https://www.facebook.com/farsinkhan.0" class="btn btn-primary" download>Facebook</a>
+              <a href="https://www.linkedin.com/in/sulayman-khan-083802387/" class="btn btn-primary" target="_blank">Linkedin</a>
+              <a href="https://github.com/sulaymankhanfarsin-design" class="btn btn-primary" target="_blank">Github</a>
+              <a href="https://www.facebook.com/farsinkhan.0" class="btn btn-primary" target="_blank">Facebook</a>
             </div>
           </div>
         </section>
 
         <section class="card">
-          <h3>Skills</h3>
-          <div class="Skills">
-            <a class="chip">Html</a>
-            
-            <a class="chip">Python</a>
-            
-            <a class="chip">SQL</a>
-            
-            <a class="chip">Css (basic)</a>
-            
-            <a class="chip">Machine Learning (basic)</a>
-            
-            <a class="chip">Project Management</a>
+          <h3>Gallery</h3>
+          <div class="gallery">
+            <img src="WhatsApp Image 2025-08-18 at 3.10.57 PM.jpeg" alt="photo1">
+            <img src="WhatsApp Image 2025-09-23 at 9.33.00 PM.jpeg" alt="photo2">
+            <img src="https://via.placeholder.com/400x300.png?text=Photo+3" alt="photo3">
+            <img src="https://via.placeholder.com/400x300.png?text=Photo+4" alt="photo4">
           </div>
         </section>
 
-       <section class="card">
+        <section class="card">
+          <h3>Skills</h3>
+          <div class="skills">
+            <span class="chip">Html</span>
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Css (basic)</span>
+            <span class="chip">Machine Learning (basic)</span>
+            <span class="chip">Project Management</span>
+          </div>
+        </section>
+
+        <section class="card">
           <h3>Digital Skills</h3>
-          <div class="Soft Skills">
-            <a class="chip">Microsoft Word</a>
-            <a class="chip">Microsoft Powerpoint</a>
-            <a class="chip">Microsoft Excel</a>
-            <a class="chip">Adobe Photoshop</a>
-            <a class="chip">Adobe Premiere Pro</a>
-            <a class="chip">Adobe Lightroom</a>
+          <div class="skills">
+            <span class="chip">Microsoft Word</span>
+            <span class="chip">Microsoft Powerpoint</span>
+            <span class="chip">Microsoft Excel</span>
+            <span class="chip">Adobe Photoshop</span>
+            <span class="chip">Adobe Premiere Pro</span>
+            <span class="chip">Adobe Lightroom</span>
           </div>
         </section>
 
         <section class="card">
           <h3>Trading Skills</h3>
-          
-          <div class="Skills">
+          <div class="skills">
             <span class="chip">Forex Trading</span>
-            
             <span class="chip">Crypto Trading</span>
-            
             <span class="chip">Binary Trading (basic)</span>
-            
             <span class="chip">Stock Market (basic)</span>
           </div>
         </section>
 
         <section class="card">
           <h3>Language Skills</h3>
-          <a class="Skills">
-            <a class="chip">English</a>
-            
-            <a class="chip">Bangla</a>
-            
-            <a class="chip">Hindi</a>
-            
-            <a class="chip">Urdu</a>
-          </a>
+          <div class="skills">
+            <span class="chip">English</span>
+            <span class="chip">Bangla</span>
+            <span class="chip">Hindi</span>
+            <span class="chip">Urdu</span>
+          </div>
         </section>
-        
       </aside>
     </main>
 
     <footer>
       &copy; 2025 . Sulayman Khan Farsin . All rights reserved.
     </footer>
+
   </div>
 
   <div id="lightbox"><img src="" alt="Expanded photo"></div>
 
   <script>
+    /* ===== YouTube Video Functions ===== */
+    function openAndPlayVideo(videoId, boxId, iframeId) {
+      // Close all boxes first
+      document.querySelectorAll('.vamk-video-box').forEach(b => b.style.display = 'none');
+      
+      const box = document.getElementById(boxId);
+      const iframe = document.getElementById(iframeId);
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      box.style.display = "block";
+      box.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function closeVideo(boxId, iframeId) {
+      const box = document.getElementById(boxId);
+      const iframe = document.getElementById(iframeId);
+      iframe.src = "";
+      box.style.display = "none";
+    }
+
+    /* ===== Local Video Functions ===== */
+    function openAndPlayLocal(boxId, videoId) {
+      // Close all boxes first
+      document.querySelectorAll('.vamk-video-box').forEach(b => b.style.display = 'none');
+
+      const box = document.getElementById(boxId);
+      const video = document.getElementById(videoId);
+      
+      box.style.display = "block";
+      video.play().catch(e => console.log("Auto-play blocked"));
+      box.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function closeLocal(boxId, videoId) {
+      const box = document.getElementById(boxId);
+      const video = document.getElementById(videoId);
+      video.pause();
+      video.currentTime = 0;
+      box.style.display = "none";
+    }
+
+    /* ===== Gallery Lightbox ===== */
     const galleryImages = document.querySelectorAll('.gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
