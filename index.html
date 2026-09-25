@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sulayman Khan Farsin — Portfolio</title>
-  <meta name="description" content="Personal portfolio website of Sulayman Khan Farsin." />
+  <title>Sulayman Farsin — Video Editor &amp; Content Creator</title>
+  <meta name="description" content="Sulayman Farsin — Video Editor, Content Creator and Photographer based in Vaasa, Finland. 2+ years of practical experience." />
+  <meta name="theme-color" content="#0c0b0b" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -219,13 +220,49 @@
       border: 1px solid rgba(212,175,55,0.25);
     }
 
-    iframe, video{
+    /* Keep YouTube embeds 16:9, but NEVER force local videos into 16:9.
+       This preserves the original video orientation (9:16 / 16:9 / 1:1). */
+    iframe{
+      display:block;
       width:100%;
       aspect-ratio:16/9;
+      height:auto;
       border-radius:14px;
       border:1px solid rgba(255,255,255,0.12);
       background:#000;
     }
+
+    video{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:78vh;
+      aspect-ratio:auto;
+      object-fit:contain;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:#000;
+    }
+
+    .youtube-fallback{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:260px;
+      padding:28px;
+      text-align:center;
+      border-radius:14px;
+      background:#090909;
+      border:1px solid rgba(212,175,55,0.22);
+    }
+    .youtube-fallback p{
+      color:var(--muted);
+      font-size:14px;
+      max-width:560px;
+    }
+    .youtube-fallback strong{color:#fff;}
 
     footer{
       opacity:0.8;
@@ -234,6 +271,68 @@
       margin-top:10px;
       color:var(--muted);
     }
+
+    /* ===== JOB-FOCUSED PORTFOLIO POLISH ===== */
+    .hero-copy{min-width:0;flex:1;}
+    .hero-subtitle{
+      margin-top:4px;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:600;
+    }
+    .hero-availability{
+      margin-top:9px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .hero-availability strong{color:#fff;}
+    .hero-cta{margin-top:14px;}
+    .section-intro{
+      margin-top:7px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .project-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .project-meta span{
+      display:inline-flex;
+      align-items:center;
+      padding:5px 9px;
+      border-radius:999px;
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid rgba(212,175,55,0.22);
+      background:rgba(212,175,55,0.05);
+    }
+    .secondary-project{opacity:0.90;}
+    .secondary-project .item{
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), transparent);
+      border-color:rgba(255,255,255,0.10);
+    }
+    .availability-tag{
+      border-color:rgba(212,175,55,0.55);
+      color:#fff;
+    }
+    .btn:focus-visible,
+    a:focus-visible,
+    .gallery img:focus-visible{
+      outline:2px solid var(--accent);
+      outline-offset:3px;
+    }
+    @media(max-width:700px){
+      body{padding:14px;}
+      header{align-items:flex-start;}
+      .avatar{width:88px;height:88px;}
+      h1{font-size:28px;line-height:1.15;}
+      .meta{gap:7px;}
+      .tag{padding:7px 11px;font-size:12px;}
+      .card{padding:18px;}
+    }
+
   </style>
 </head>
 
@@ -242,16 +341,23 @@
 
     <header>
       <div class="avatar">
-        <img src="WhatsApp Image 2025-09-23 at 9.33.00 PM.jpeg" alt="profile">
+        <img src="WhatsApp Image 2025-09-23 at 9.33.00 PM.jpeg" alt="Sulayman Farsin">
       </div>
 
-      <div>
+      <div class="hero-copy">
         <h1>SULAYMAN FARSIN</h1>
+        <div class="hero-subtitle">Video Editor &amp; Content Creator</div>
         <div class="meta">
-          <div class="tag">Digital Creator</div>
-          <div class="tag">Content Creator</div>
-          <div class="tag">Photos and Videographer</div>
-          <div class="tag">An Editor</div>
+          <div class="tag">Vaasa, Finland</div>
+          <div class="tag">2+ Years Experience</div>
+          <div class="tag availability-tag">Open to Work</div>
+        </div>
+        <div class="hero-availability">
+          Available for <strong>part-time, freelance, internship &amp; project-based</strong> creative work.
+        </div>
+        <div class="cta hero-cta">
+          <a href="#selected-work" class="btn btn-primary">▶ View My Work</a>
+          <a href="mailto:sulaymankhanfarsin@gmail.com" class="btn btn-ghost">✉ Contact Me</a>
         </div>
       </div>
     </header>
@@ -263,17 +369,60 @@
         <section class="card about">
           <h2>About Me</h2>
           <p style="color:var(--muted); margin-top:10px;">
-            Hello — I'm <strong style="color:#fff;">Sulayman Farsin</strong>,  a Video Editor, Content Creator and Photographer based in Vaasa, Finland. I have over two years of practical experience working with video editing and photography, from raw footage and image selection to polished final content.
+            I'm <strong style="color:#fff;">Sulayman Farsin</strong>, a Video Editor, Content Creator and Photographer based in Vaasa, Finland, with 2+ years of practical experience taking projects from raw footage and image selection to polished final delivery.
             <br><br>
-              I enjoy turning raw footage into engaging visual stories through editing, pacing, colour, sound and creative visual choices. My technical background and current Information Technology studies at Vaasa University of Applied Sciences also help me learn new digital tools and workflows quickly.
-            <br><br>
-              I am currently open to <strong style="color:#fff;">full-time</strong>, <strong style="color:#fff;">part-time</strong>, <strong style="color:#fff;">freelance</strong>, <strong style="color:#fff;">internship</strong> and <strong style="color:#fff;">project-based</strong> opportunities in video editing, content creation, photography and digital media.
+            I focus on <strong style="color:#fff;">pacing, storytelling, colour, sound and platform-ready content</strong>. My Information Technology studies at Vaasa University of Applied Sciences also give me a technical workflow mindset and help me adapt quickly to new digital tools.
           </p>
 
           <div class="meta" style="margin-top:14px;">
-            <div class="tag">Location: Skagvägen 192 65630 Karperö, Finland</div>
-            <div class="tag">Role: Project-based creative work</div>
-            <div class="tag">Hobby: Photography & Videoediting</div>
+            <div class="tag">Video Editing</div>
+            <div class="tag">Content Creation</div>
+            <div class="tag">Photography</div>
+            <div class="tag">Photo Editing</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Selected Experience</h3>
+          <div class="list" style="margin-top:12px;">
+            <div class="item">
+              <h4>Video Editor &amp; Photographer — 2+ Years</h4>
+              <p>Practical experience creating and editing visual content, working with footage and photographs, and taking projects from raw material to final delivery.</p>
+              <div class="project-meta">
+                <span>Video Editing</span>
+                <span>Photography</span>
+                <span>Social Content</span>
+                <span>Post-Production</span>
+              </div>
+            </div>
+
+            <div class="item secondary-project">
+              <h4>Computer Hardware Technician — Desh Enterprise</h4>
+              <p>Computer assembly, diagnostics and troubleshooting. Supporting technical experience that complements my digital and creative workflow.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>What I Do</h3>
+          <p class="section-intro">From raw media to polished, platform-ready content.</p>
+          <div class="list" style="margin-top:12px;">
+            <div class="item">
+              <h4>Video Editing</h4>
+              <p>Pacing, storytelling, transitions, colour, sound, subtitles and final delivery for short-form and long-form content.</p>
+            </div>
+            <div class="item">
+              <h4>Social Media Content</h4>
+              <p>Short videos and visual content prepared for social platforms and different screen formats.</p>
+            </div>
+            <div class="item">
+              <h4>Photography</h4>
+              <p>Capturing clean, purposeful visuals for content, projects and professional assignments.</p>
+            </div>
+            <div class="item">
+              <h4>Photo Editing</h4>
+              <p>Colour correction, retouching and visual enhancement using professional editing tools.</p>
+            </div>
           </div>
         </section>
 
@@ -281,132 +430,111 @@
           <h3>Education</h3>
           <div class="list" style="margin-top:12px;">
             <div class="item">
-              <h4>Bachelor of Applied Science - (B. Eng.) — Information Technology (Running)</h4>
-              <p>Vaasan ammattikorkeakoulu┃Vaasa University of Applied Sciences — Wolffintie 30, 65200 Vaasa, Finland.</p>
+              <h4>Bachelor of Applied Science (B. Eng.) — Information Technology</h4>
+              <p>Vaasan ammattikorkeakoulu (VAMK) — Vaasa University of Applied Sciences · Vaasa, Finland · Current student</p>
             </div>
-            
           </div>
         </section>
 
-        <section class="card">
-          <h3>Experience & Projects</h3>
+        <section class="card" id="selected-work">
+          <h3>Selected Video &amp; Photography Work</h3>
+          <p class="section-intro">A selection of editing, videography and content projects. More work can be added without changing the player system.</p>
 
-          <div class="list" style="margin-top:12px;">
-            <div class="item">
-              <h4>Video Editor & Photographer — 2+ Years</h4>
-              <p>Practical experience creating and editing visual content, working with footage and photographs, and taking projects from raw material to final delivery.</p>
+          <div class="item" style="margin-top:12px;">
+            <div class="cta">
+              <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('wTcv8jZk7vY', 'ytBox', 'ytPlayer')">
+                ▶ Watch: Cinematic Tour
+              </button>
+
+              <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('bdBox', 'bdVideo')">
+                ▶ Watch: Reasons To Visit BD
+              </button>
+
+              <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('winterBox', 'winterVideo')">
+                ▶ Watch: Winter Morning
+              </button>
+
+              <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('W7QhlRWum_Q', 'ytBox', 'ytPlayer')">
+                ▶ Watch: Content Creation for Client
+              </button>
             </div>
 
-            <div class="item">
-              <h4>Technician (computer hardware) — Desh Enterprise</h4>
-              <p>Technical experience in computer assembly, diagnostics and troubleshooting. This background remains part of my wider technical skill set and supports my ability to learn digital tools quickly.</p>
+            <div class="project-meta">
+              <span>Editing</span>
+              <span>Videography</span>
+              <span>Client Content</span>
+              <span>Short &amp; Long Form</span>
             </div>
 
-          
-       
+            <div id="ytBox" class="vamk-video-box">
+              <div class="cta" style="margin-bottom:10px;">
+                <button class="btn btn-ghost" type="button" onclick="closeVideo('ytBox', 'ytPlayer')">✖ Close Video</button>
+              </div>
+              <iframe id="ytPlayer" src="" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+              <div class="youtube-fallback" id="ytFallback">
+                <p><strong>YouTube preview is unavailable when this HTML file is opened directly from your computer.</strong><br>Run it with VS Code Live Server or open the video directly on YouTube.</p>
+                <a id="ytFallbackLink" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">▶ Open Video on YouTube</a>
+              </div>
+            </div>
 
-        <section class="card">
-          <h3>What I Do</h3>
-          <div class="list" style="margin-top:12px;">
-            <div class="item">
-              <h4>Video Editing</h4>
-              <p>Raw footage to polished videos with clean pacing, transitions, colour, sound and storytelling.</p>
+            <div id="bdBox" class="vamk-video-box">
+              <div class="cta" style="margin-bottom:10px;">
+                <button class="btn btn-ghost" type="button" onclick="closeLocal('bdBox', 'bdVideo')">✖ Close Video</button>
+              </div>
+              <video id="bdVideo" controls playsinline aria-label="Reasons To Visit BD video">
+                <source src="Reasons To Visit BD.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="item">
-              <h4> Social Media Content</h4>
-              <p>Creating engaging content for various social media platforms, including images and short videos.</p>
+
+            <div id="winterBox" class="vamk-video-box">
+              <div class="cta" style="margin-bottom:10px;">
+                <button class="btn btn-ghost" type="button" onclick="closeLocal('winterBox', 'winterVideo')">✖ Close Video</button>
+              </div>
+              <video id="winterVideo" controls playsinline aria-label="Winter Morning video">
+                <source src="Winter Morning.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="item">
-              <h4>Photography</h4>
-              <p>Capturing moments and creating compelling visuals for various purposes, from personal projects to professional assignments.</p>
-            </div>
-            <div class="item">
-              <h4>Photo Editing</h4>
-              <p>Colour correction, retouching and visual enhancement using professional editing tools.</p>
-            </div>
-            
           </div>
-        </section>    
 
-            <div class="item">
-              <h4>PHOTOS, VIDEOGRAPHER & EDITING PROJECTS</h4>
-              
-              <div class="cta">
-                <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('wTcv8jZk7vY', 'ytBox', 'ytPlayer')">
-                  ▶ Watch: Cinematic Tour
-                </button>
-                
-                <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('bdBox', 'bdVideo')">
-                  ▶ Watch: Reasons To Visit BD
-                </button>
-                
-                <button class="btn btn-primary" type="button" onclick="openAndPlayLocal('winterBox', 'winterVideo')">
-                  ▶ Watch: Winter Morning
-                </button>
+          <div class="item secondary-project" style="margin-top:12px;">
+            <h4>Additional Technical Project</h4>
+            <p style="margin-top:4px;">Kept as supporting evidence of my technical background; the main showcase remains focused on creative work.</p>
 
-                 <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('W7QhlRWum_Q', 'ytBox', 'ytPlayer')">
-                  ▶ Watch: Content Creation for Client
-                </button>
-              </div>
-
-              <div id="ytBox" class="vamk-video-box">
-                <div class="cta" style="margin-bottom:10px;">
-                  <button class="btn btn-ghost" type="button" onclick="closeVideo('ytBox', 'ytPlayer')">✖ Close Video</button>
-                </div>
-                <iframe id="ytPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-
-              <div id="bdBox" class="vamk-video-box">
-                <div class="cta" style="margin-bottom:10px;">
-                  <button class="btn btn-ghost" type="button" onclick="closeLocal('bdBox', 'bdVideo')">✖ Close Video</button>
-                </div>
-                <video id="bdVideo" controls>
-                  <source src="Reasons To Visit BD.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div id="winterBox" class="vamk-video-box">
-                <div class="cta" style="margin-bottom:10px;">
-                  <button class="btn btn-ghost" type="button" onclick="closeLocal('winterBox', 'winterVideo')">✖ Close Video</button>
-                </div>
-                <video id="winterVideo" controls>
-                  <source src="Winter Morning.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+            <div class="cta">
+              <button class="btn btn-ghost" type="button" onclick="openAndPlayVideo('W2ZzYprSND0', 'oldPcBox', 'oldPcPlayer')">
+                ▶ Watch: An Old PC Assemble
+              </button>
             </div>
 
-            <div class="item">
-              <h4>HARDWARE TECHNICIAN PROJECTS</h4>
-              <div class="cta">
-                <button class="btn btn-primary" type="button" onclick="openAndPlayVideo('W2ZzYprSND0', 'oldPcBox', 'oldPcPlayer')">
-                  ▶ Watch: An Old PC assemble
-                </button>
+            <div id="oldPcBox" class="vamk-video-box">
+              <div class="cta" style="margin-bottom:10px;">
+                <button class="btn btn-ghost" type="button" onclick="closeVideo('oldPcBox', 'oldPcPlayer')">✖ Close Video</button>
               </div>
-              <div id="oldPcBox" class="vamk-video-box">
-                <div class="cta" style="margin-bottom:10px;">
-                  <button class="btn btn-ghost" type="button" onclick="closeVideo('oldPcBox', 'oldPcPlayer')">✖ Close Video</button>
-                </div>
-                <iframe id="oldPcPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe id="oldPcPlayer" src="" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+              <div class="youtube-fallback" id="oldPcFallback">
+                <p><strong>YouTube preview is unavailable when this HTML file is opened directly from your computer.</strong><br>Run it with VS Code Live Server or open the video directly on YouTube.</p>
+                <a id="oldPcFallbackLink" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer">▶ Open Video on YouTube</a>
               </div>
             </div>
-
           </div>
         </section>
+
       </div>
 
       <aside>
         <section class="card">
-          <h3>Contact & Social Media</h3>
+          <h3>Contact</h3>
           <div style="margin-top:10px; color:var(--muted);">
             <div>Email: <a href="mailto:sulaymankhanfarsin@gmail.com">sulaymankhanfarsin@gmail.com</a></div>
             <div style="margin-top:6px;">Phone: +358414727141</div>
+            <div style="margin-top:6px;">Location: Vaasa, Finland</div>
 
             <div class="cta">
-              <a href="https://www.linkedin.com/in/sulayman-khan-farsin/" class="btn btn-primary" target="_blank">Linkedin</a>
-              <a href="https://github.com/sulaymankhanfarsin-design" class="btn btn-primary" target="_blank">Github</a>
-              <a href="https://www.instagram.com/farsin.khan/" class="btn btn-primary" target="_blank">Instagram</a>
+              <a href="https://www.linkedin.com/in/sulayman-khan-farsin/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/sulaymankhanfarsin-design" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.instagram.com/farsin.khan/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
           </div>
         </section>
@@ -414,10 +542,10 @@
         <section class="card">
           <h3>Gallery</h3>
           <div class="gallery">
-            <img src="pic01.png" alt="photo1">
-            <img src="pic02.png" alt="photo2">
-            <img src="pic03.jpeg" alt="photo3">
-            <img src="pic04.jpeg" alt="photo4">
+            <img src="pic01.png" alt="Portfolio photo 1" tabindex="0">
+            <img src="pic02.png" alt="Portfolio photo 2" tabindex="0">
+            <img src="pic03.jpeg" alt="Portfolio photo 3" tabindex="0">
+            <img src="pic04.jpeg" alt="Portfolio photo 4" tabindex="0">
           </div>
         </section>
 
@@ -436,7 +564,7 @@
         </section>
 
         <section class="card">
-          <h3>Crieative Tools</h3>
+          <h3>Creative Tools</h3>
           <div class="skills">
             <span class="chip">CapCut</span>
             <span class="chip">DaVinci Resolve</span>
@@ -454,7 +582,7 @@
             <span class="chip">Python</span>
             <span class="chip">Html</span>
             <span class="chip">Css</span>
-            My technology background is secondary to my creative work, but it helps me adapt to digital tools and technical workflows.
+            My technical background is secondary to my creative work, but it supports digital workflows and quick adaptation to new tools.
           </div>
         </section>
 
@@ -471,7 +599,7 @@
     </main>
 
     <footer>
-      &copy; 2026. Sulayman Khan Farsin . Video Editor . Content Creator . Photographer 
+      &copy; 2026. Sulayman Khan Farsin · Video Editor · Content Creator · Photographer 
     </footer>
 
   </div>
@@ -481,21 +609,40 @@
   <script>
     /* ===== YouTube Video Functions ===== */
     function openAndPlayVideo(videoId, boxId, iframeId) {
-      // Close all boxes first
+      // Close all other players first.
       document.querySelectorAll('.vamk-video-box').forEach(b => b.style.display = 'none');
-      
+
       const box = document.getElementById(boxId);
       const iframe = document.getElementById(iframeId);
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      box.style.display = "block";
-      box.scrollIntoView({ behavior: "smooth", block: "center" });
+      const fallback = box.querySelector('.youtube-fallback');
+      const fallbackLink = fallback ? fallback.querySelector('a') : null;
+      const youtubeWatchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+      // IMPORTANT: YouTube blocks some iframe requests when a page is opened
+      // directly with file://. Use a clean fallback instead of showing Error 153.
+      if (window.location.protocol === 'file:') {
+        iframe.src = '';
+        iframe.style.display = 'none';
+        if (fallback) fallback.style.display = 'flex';
+        if (fallbackLink) fallbackLink.href = youtubeWatchUrl;
+      } else {
+        if (fallback) fallback.style.display = 'none';
+        iframe.style.display = 'block';
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+      }
+
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function closeVideo(boxId, iframeId) {
       const box = document.getElementById(boxId);
       const iframe = document.getElementById(iframeId);
-      iframe.src = "";
-      box.style.display = "none";
+      const fallback = box.querySelector('.youtube-fallback');
+      iframe.src = '';
+      iframe.style.display = 'block';
+      if (fallback) fallback.style.display = 'none';
+      box.style.display = 'none';
     }
 
     /* ===== Local Video Functions ===== */
